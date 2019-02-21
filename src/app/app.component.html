@@ -12,13 +12,14 @@
   </div>
 
   <div id="list" *ngIf="(result$ | async) as repos">
-    <ul *ngFor="let repo of repos | slice:0:20">
-      <li>
-        <a [href]="repo.html_url" target="_blank">
-          {{ repo.name }} with {{ repo.stargazers_count }} star(s))</a
-        >
-      </li>
+    <ul>
+      <ng-container *ngFor="let repo of (repos | slice: 0:25)">
+        <li>
+          <a [href]="repo.html_url" target="_blank">
+            {{ repo.name }} with {{ repo.stargazers_count }} star(s))</a
+          >
+        </li>
+      </ng-container>
     </ul>
   </div>
 </div>
-  
